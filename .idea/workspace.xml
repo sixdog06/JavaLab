@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="606cca80-360a-4d96-9c72-7c9e5c5af775" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/effective-java/src/main/java/com/punchcode/effectivejava/chapter2/Item1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/effective-java/src/main/resources/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/effective-java/src/main/java/com/punchcode/effectivejava/chapter2/Item1.java" beforeDir="false" afterPath="$PROJECT_DIR$/effective-java/src/main/java/com/punchcode/effectivejava/chapter2/Item1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +53,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.16573972" />
@@ -62,6 +61,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
+    <configuration name="Item1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.punchcode.effectivejava.chapter2.Item1" />
+      <module name="effective-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.punchcode.effectivejava.chapter2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -75,6 +87,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Item1" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -85,7 +102,10 @@
       <option name="presentableId" value="Default" />
       <updated>1635902339394</updated>
       <workItem from="1635902341284" duration="2736000" />
-      <workItem from="1635933338667" duration="2187000" />
+      <workItem from="1635933338667" duration="2415000" />
+      <workItem from="1635992320931" duration="722000" />
+      <workItem from="1636010077965" duration="3144000" />
+      <workItem from="1636333842831" duration="3510000" />
     </task>
     <servers />
   </component>
