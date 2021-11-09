@@ -13,6 +13,7 @@ import static com.punchcode.effectivejava.chapter2.common.Pizza.Topping.*;
  * @since 2021/11/8
  */
 public class Item2 {
+
     public static void main(String[] args) {
         // 用builder就可以这样创建一个类, 这个NutritionFacts是immutable的
         NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8)
@@ -22,7 +23,6 @@ public class Item2 {
         // Pizza
         NyPizza pizza = new NyPizza.Builder(SMALL)
                 .addTopping(SAUSAGE).addTopping(ONION).build();
-
         Calzone calzone = new Calzone.Builder()
                 .addTopping(HAM).sauceInside().build();
     }

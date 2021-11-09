@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="606cca80-360a-4d96-9c72-7c9e5c5af775" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/effective-java/src/main/java/com/punchcode/effectivejava/chapter2/Item2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/effective-java/src/main/java/com/punchcode/effectivejava/chapter2/common/Calzone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/effective-java/src/main/java/com/punchcode/effectivejava/chapter2/common/NutritionFacts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/effective-java/src/main/java/com/punchcode/effectivejava/chapter2/common/NyPizza.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/effective-java/src/main/java/com/punchcode/effectivejava/chapter2/common/Pizza.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/effective-java/target/classes/com/punchcode/effectivejava/chapter2/Item1.class" beforeDir="false" afterPath="$PROJECT_DIR$/effective-java/target/classes/com/punchcode/effectivejava/chapter2/Item1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/effective-java/src/main/java/com/punchcode/effectivejava/chapter2/Item2.java" beforeDir="false" afterPath="$PROJECT_DIR$/effective-java/src/main/java/com/punchcode/effectivejava/chapter2/Item2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/effective-java/src/main/java/com/punchcode/effectivejava/chapter2/common/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/effective-java/src/main/java/com/punchcode/effectivejava/chapter2/common/Pizza.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +31,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitRewordedCommitMessages">
     <option name="commitMessagesMapping">
@@ -92,17 +89,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Item2" />
@@ -141,7 +127,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="JavaLab/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -157,6 +143,11 @@
         <entry key="Branch">
           <value>
             <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="JavaLab/main" />
