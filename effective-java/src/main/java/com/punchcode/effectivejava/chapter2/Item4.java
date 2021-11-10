@@ -5,6 +5,7 @@ import com.punchcode.effectivejava.chapter2.common.UtilityClass;
 import java.util.Arrays;
 
 /**
+ * Item 4: Enforce noninstantiability with a private constructor
  * @author huanruiz
  * @since 2021/11/9
  */
