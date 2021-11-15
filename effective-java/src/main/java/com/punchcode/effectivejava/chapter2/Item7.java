@@ -45,6 +45,7 @@ class Stack {
         // size减少但是依然被引用, 内存泄漏
         return elements[--size];
     }
+
     /**
      * Ensure space for at least one more element, roughly
      * doubling the capacity each time the array needs to grow.
