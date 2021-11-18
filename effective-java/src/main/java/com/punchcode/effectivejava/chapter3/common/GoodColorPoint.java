@@ -25,7 +25,8 @@ public class GoodColorPoint extends Point {
         return point;
     }
 
-    @Override public boolean equals(Object o) {
+    @Override
+    public boolean equals(Object o) {
         if (!(o instanceof GoodColorPoint)) {
             return false;
         }

@@ -2,6 +2,7 @@ package com.punchcode.effectivejava.chapter3;
 
 import com.punchcode.effectivejava.chapter3.common.CaseInsensitiveString;
 import com.punchcode.effectivejava.chapter3.common.ColorPoint;
+import com.punchcode.effectivejava.chapter3.common.GoodColorPoint;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -42,9 +43,18 @@ public class Item10 {
         ColorPoint p1 = new ColorPoint(1, 2, Color.RED);
         Point p2 = new Point(1, 2);
         ColorPoint p3 = new ColorPoint(1, 2, Color.BLUE);
+        System.out.println("---bad ColorPoint case---");
         System.out.println(p1.equals(p2));
         System.out.println(p2.equals(p3));
         System.out.println(p1.equals(p3));
+
+        // 通过分离color属性来保证Transitivity
+        GoodColorPoint goodP1 = new GoodColorPoint(1, 2, Color.RED);
+        GoodColorPoint goodP3 = new GoodColorPoint(1, 2, Color.BLUE);
+        System.out.println("---good ColorPoint case---");
+        System.out.println(goodP1.equals(p2));
+        System.out.println(p2.equals(goodP3));
+        System.out.println(goodP1.equals(goodP3));
     }
 }
 
