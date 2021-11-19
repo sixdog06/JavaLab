@@ -19,7 +19,8 @@ public class ColorPoint extends Point {
     }
 
     /**
-     * 错误版本, 满足symmetry ,但是不满足transitivity
+     * 错误版本, 满足symmetry ,但是不满足transitivity. 有其他的如SmellPoint, 如果写
+     * {@code myColorPoint.equals(mySmellPoint)} 会因为递归, 触发StackOverflowError
      */
     @Override
     public boolean equals(Object o) {

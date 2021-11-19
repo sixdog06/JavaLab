@@ -5,6 +5,7 @@ import com.punchcode.effectivejava.chapter3.common.ColorPoint;
 import com.punchcode.effectivejava.chapter3.common.GoodColorPoint;
 
 import java.awt.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -55,6 +56,16 @@ public class Item10 {
         System.out.println(goodP1.equals(p2));
         System.out.println(p2.equals(goodP3));
         System.out.println(goodP1.equals(goodP3));
+
+        // 3.Consistent
+        try {
+            //
+            URL url1 = new URL("https://www.baidu.com");
+            URL url2 = new URL("https://www.baidu.com");
+            System.out.println(url1.equals(url2));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
