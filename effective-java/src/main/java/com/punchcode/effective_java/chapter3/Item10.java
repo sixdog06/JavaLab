@@ -3,11 +3,13 @@ package com.punchcode.effective_java.chapter3;
 import com.punchcode.effective_java.chapter3.common.CaseInsensitiveString;
 import com.punchcode.effective_java.chapter3.common.ColorPoint;
 import com.punchcode.effective_java.chapter3.common.GoodColorPoint;
+import com.punchcode.effective_java.chapter3.common.PhoneNumber;
 
 import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 /**
@@ -66,6 +68,15 @@ public class Item10 {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        // 比较
+        System.out.println(1f == 1.0f);
+        System.out.println(Float.compare(Float.valueOf(1), Float.valueOf(1.0f)));
+        System.out.println(Double.compare(Double.valueOf(1), Double.valueOf(1.00)));
+        System.out.println(Objects.equals(1.0, 1.00));
+
+        // equals的标准例程
+        new PhoneNumber(12, 34, 56);
     }
 }
 
