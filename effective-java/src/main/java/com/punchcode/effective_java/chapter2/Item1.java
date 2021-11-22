@@ -1,4 +1,4 @@
-package com.punchcode.effectivejava.chapter2;
+package com.punchcode.effective_java.chapter2;
 
 import java.util.*;
 

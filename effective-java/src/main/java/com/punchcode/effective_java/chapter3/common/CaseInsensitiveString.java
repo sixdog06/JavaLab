@@ -1,4 +1,4 @@
-package com.punchcode.effectivejava.chapter3.common;
+package com.punchcode.effective_java.chapter3.common;
 
 import java.util.Objects;
 

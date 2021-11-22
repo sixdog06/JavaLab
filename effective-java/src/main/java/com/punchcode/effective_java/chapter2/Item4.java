@@ -1,8 +1,6 @@
-package com.punchcode.effectivejava.chapter2;
+package com.punchcode.effective_java.chapter2;
 
-import com.punchcode.effectivejava.chapter2.common.UtilityClass;
-
-import java.util.Arrays;
+import com.punchcode.effective_java.chapter2.common.UtilityClass;
 
 /**
  * Item 4: Enforce noninstantiability with a private constructor

@@ -1,4 +1,4 @@
-package com.punchcode.effectivejava.chapter2.common;
+package com.punchcode.effective_java.chapter2.common;
 
 import java.util.EnumSet;
 import java.util.Objects;

@@ -1,11 +1,11 @@
-package com.punchcode.effectivejava.chapter2;
+package com.punchcode.effective_java.chapter2;
 
-import com.punchcode.effectivejava.chapter2.common.Calzone;
-import com.punchcode.effectivejava.chapter2.common.NutritionFacts;
-import com.punchcode.effectivejava.chapter2.common.NyPizza;
+import com.punchcode.effective_java.chapter2.common.Calzone;
+import com.punchcode.effective_java.chapter2.common.NutritionFacts;
+import com.punchcode.effective_java.chapter2.common.NyPizza;
 
-import static com.punchcode.effectivejava.chapter2.common.NyPizza.Size.SMALL;
-import static com.punchcode.effectivejava.chapter2.common.Pizza.Topping.*;
+import static com.punchcode.effective_java.chapter2.common.NyPizza.Size.SMALL;
+import static com.punchcode.effective_java.chapter2.common.Pizza.Topping.*;
 
 /**
  * Consider a builder when faced with many constructor parameters

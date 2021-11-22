@@ -1,4 +1,4 @@
-package com.punchcode.effectivejava.chapter2;
+package com.punchcode.effective_java.chapter2;
 
 /**
  * Item 8: Avoid finalizers and cleaners. 不要手动调用垃圾回收方法.

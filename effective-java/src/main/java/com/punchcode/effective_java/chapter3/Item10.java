@@ -1,8 +1,8 @@
-package com.punchcode.effectivejava.chapter3;
+package com.punchcode.effective_java.chapter3;
 
-import com.punchcode.effectivejava.chapter3.common.CaseInsensitiveString;
-import com.punchcode.effectivejava.chapter3.common.ColorPoint;
-import com.punchcode.effectivejava.chapter3.common.GoodColorPoint;
+import com.punchcode.effective_java.chapter3.common.CaseInsensitiveString;
+import com.punchcode.effective_java.chapter3.common.ColorPoint;
+import com.punchcode.effective_java.chapter3.common.GoodColorPoint;
 
 import java.awt.*;
 import java.net.URL;

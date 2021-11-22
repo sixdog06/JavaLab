@@ -1,7 +1,7 @@
-package com.punchcode.effectivejava.chapter2;
+package com.punchcode.effective_java.chapter2;
 
-import com.punchcode.effectivejava.chapter2.common.Lexicon;
-import com.punchcode.effectivejava.chapter2.common.SpellChecker;
+import com.punchcode.effective_java.chapter2.common.Lexicon;
+import com.punchcode.effective_java.chapter2.common.SpellChecker;
 
 /**
  * Item 5: Prefer dependency injection to hardwiring resources

@@ -1,6 +1,6 @@
-package com.punchcode.effectivejava.chapter2;
+package com.punchcode.effective_java.chapter2;
 
-import com.punchcode.effectivejava.chapter2.common.RomanNumerals;
+import com.punchcode.effective_java.chapter2.common.RomanNumerals;
 
 /**
  * Item 6: Avoid creating unnecessary objects
