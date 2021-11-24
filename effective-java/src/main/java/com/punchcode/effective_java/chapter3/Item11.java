@@ -19,5 +19,8 @@ public class Item11 {
         System.out.println(map.get(phoneNumber));
         // 不同的对象, 没有重写hashCode, 得不到结果
         System.out.println(map.get(new PhoneNumber(123, 456, 789)));
+
+        // String的hashCode有详细说明, 会限制以后的性能优化
+        new String();
     }
 }
