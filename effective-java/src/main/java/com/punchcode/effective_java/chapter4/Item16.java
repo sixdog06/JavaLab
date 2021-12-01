@@ -7,4 +7,7 @@ package com.punchcode.effective_java.chapter4;
  */
 public class Item16 {
 
+    public static void main(String[] args) {
+
+    }
 }
