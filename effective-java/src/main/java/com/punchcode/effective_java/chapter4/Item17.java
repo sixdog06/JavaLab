@@ -1,5 +1,7 @@
 package com.punchcode.effective_java.chapter4;
 
+import com.punchcode.effective_java.chapter4.common.Complex;
+
 /**
  * Item 17: Minimize mutability
  * @author huanruiz
@@ -8,7 +10,7 @@ package com.punchcode.effective_java.chapter4;
 public class Item17 {
 
     public static void main(String[] args) {
-        new Complex(1, 2);
+        System.out.println(Complex.valueOf(1, 2));
         System.out.println(Complex.ZERO);
     }
 }

@@ -1,4 +1,4 @@
-package com.punchcode.effective_java.chapter4;
+package com.punchcode.effective_java.chapter4.common;
 
 /**
  * Immutable complex number class, 返回的都是新对象
@@ -19,9 +19,13 @@ public final class Complex {
 
     private final double im;
 
-    public Complex(double re, double im) {
+    private Complex(double re, double im) {
         this.re = re;
         this.im = im;
+    }
+
+    public static Complex valueOf(double re, double im) {
+        return new Complex(re, im);
     }
 
     public double realPart() {
