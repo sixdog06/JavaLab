@@ -9,7 +9,7 @@ package com.punchcode.effective_java.chapter4;
 public final class Complex {
 
     /**
-     * 常用对象可以用常量池缓存
+     * 常用对象可以用常量池缓存, 最好也用静态方法返回
      */
     public static final Complex ZERO = new Complex(0, 0);
     public static final Complex ONE = new Complex(1, 0);
