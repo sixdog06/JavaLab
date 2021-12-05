@@ -4,6 +4,7 @@ import java.awt.*;
 import java.util.Objects;
 
 /**
+ * 好的equals
  * @author huanruiz
  * @since 2021/11/17
  */
