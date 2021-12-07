@@ -45,8 +45,8 @@ public final class PhoneNumber {
 
     /**
      * Typical hashCode method
-     *  guava提供了更优的hash method, 如{@codeHashing.crc32()}.
-     *  Objects提供了{@codeObjects.hash(lineNum, prefix, areaCode)}, 但是性能较差, 看源码会发现
+     *  guava提供了更优的hash method, 如{@code Hashing.crc32()}.
+     *  Objects提供了{@code Objects.hash(lineNum, prefix, areaCode)}, 但是性能较差, 看源码会发现
      *  这个方法用了{@code Object a[]}数组来存值, 使用了不必要的空间, 并且对于基础类型, 拆箱装箱也会
      *  有额外的性能损耗
      */
