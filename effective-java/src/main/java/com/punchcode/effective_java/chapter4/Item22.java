@@ -12,6 +12,5 @@ public class Item22 {
     public static void main(String[] args) {
         // 这种constant interface pattern是不应该出现的
         int protocolVersion2 = ObjectStreamConstants.PROTOCOL_VERSION_2;
-
     }
 }
