@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Item 24: Favor static member classes over nonstatic
+ * Item 24: Favor static member classes over nonstatic todo blog还有两种type
  * @author huanruiz
  * @since 2021/12/8
  */
