@@ -1,0 +1,45 @@
+package com.punchcode.effective_java.chapter6.common;
+
+/**
+ * Enum type with constant-specific method implementations
+ * @author huanruiz
+ * @since 2021/12/29
+ */
+public enum Operation {
+
+    PLUS("+") {
+        @Override
+        public double apply(double x, double y){return x + y;}
+    },
+
+    MINUS("-") {
+        @Override
+        public double apply(double x, double y){return x - y;}
+    },
+
+    TIMES("*") {
+        @Override
+        public double apply(double x, double y){return x * y;}
+    },
+
+    DIVIDE("/") {
+        @Override
+        public double apply(double x, double y){return x / y;}
+    };
+
+    private final String symbol;
+
+    Operation(String symbol) {
+        this.symbol = symbol;
+    }
+
+    @Override
+    public String toString() {
+        return symbol;
+    }
+
+    /**
+     * 要求枚举类必须去实现这个方法, 防止新的枚举类不实现报错
+     */
+    public abstract double apply(double x, double y);
+}
