@@ -5,7 +5,7 @@ package com.punchcode.effective_java.chapter6.common;
  * @author huanruiz
  * @since 2021/12/29
  */
-enum PayrollDay {
+public enum PayrollDay {
 
     MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY(PayType.WEEKEND), SUNDAY(PayType.WEEKEND);
 
