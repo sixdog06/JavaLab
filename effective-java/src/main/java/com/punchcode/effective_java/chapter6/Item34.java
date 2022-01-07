@@ -1,6 +1,6 @@
 package com.punchcode.effective_java.chapter6;
 
-import com.punchcode.effective_java.chapter6.common.Operation;
+import com.punchcode.effective_java.chapter6.common.BasicOperation;
 import com.punchcode.effective_java.chapter6.common.Planet;
 
 import java.util.Arrays;
@@ -16,6 +16,6 @@ public class Item34 {
         System.out.println(Planet.EARTH);
         System.out.println(Arrays.asList(Planet.values()));
 
-        System.out.println(Operation.PLUS.apply(1, 2));
+        System.out.println(BasicOperation.PLUS.apply(1, 2));
     }
 }
