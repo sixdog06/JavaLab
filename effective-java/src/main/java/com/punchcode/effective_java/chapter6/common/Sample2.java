@@ -1,5 +1,8 @@
 package com.punchcode.effective_java.chapter6.common;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author huanruiz
  * @since 2022/1/7
@@ -28,7 +31,19 @@ public class Sample2 {
      * Should fail (no exception)
      */
     @ExceptionTest(ArithmeticException.class)
+    @ExceptionTest(NullPointerException.class)
     public static void m3() {
 
+    }
+
+    /**
+     * Code containing an annotation with an array parameter
+     */
+    @ExceptionV2Test({IndexOutOfBoundsException.class, NullPointerException.class})
+    public static void doublyBad() {
+        // The spec permits this method to throw either
+        List<String> list = new ArrayList<>();
+        // IndexOutOfBoundsException or NullPointerException
+        list.addAll(5, null);
     }
 }
