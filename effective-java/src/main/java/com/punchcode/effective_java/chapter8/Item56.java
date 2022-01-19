@@ -8,6 +8,6 @@ package com.punchcode.effective_java.chapter8;
 public class Item56 {
 
     public static void main(String[] args) {
-
+        // nothing to write
     }
 }
