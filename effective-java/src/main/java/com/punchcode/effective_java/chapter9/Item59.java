@@ -1,13 +1,13 @@
 package com.punchcode.effective_java.chapter9;
 
 /**
- * Item 58: Prefer for-each loops to traditional for loops
+ * Item 59: Know and use the libraries
  * @author huanruiz
- * @since 2022/1/20
+ * @since 2022/1/21
  */
-public class Item58 {
+public class Item59 {
 
     public static void main(String[] args) {
-        // nothing to write
+
     }
 }
