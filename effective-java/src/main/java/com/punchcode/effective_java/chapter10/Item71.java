@@ -1,13 +1,11 @@
 package com.punchcode.effective_java.chapter10;
 
-import java.util.*;
-
 /**
- * Item 69: Use exceptions only for exceptional conditions
+ * Item 71: Avoid unnecessary use of checked exceptions
  * @author huanruiz
- * @since 2022/1/25
+ * @since 2022/1/26
  */
-public class Item69 {
+public class Item71 {
 
     public static void main(String[] args) {
 
