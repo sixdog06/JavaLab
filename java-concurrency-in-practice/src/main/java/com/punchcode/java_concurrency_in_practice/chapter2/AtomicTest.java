@@ -3,6 +3,7 @@ package com.punchcode.java_concurrency_in_practice.chapter2;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
+ * 用原子类保证原子性
  * @author huanruiz
  * @since 2022/1/29
  */
