@@ -16,7 +16,8 @@ public class OneValueCache {
 
     public OneValueCache(BigInteger i, BigInteger[] factors) {
         lastNumber = i;
-        lastFactors = Arrays.copyOf(factors, factors.length); }
+        lastFactors = Arrays.copyOf(factors, factors.length);
+    }
 
     public BigInteger[] getFactors(BigInteger i) {
         if (lastNumber == null || !lastNumber.equals(i)) {

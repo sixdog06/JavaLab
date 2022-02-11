@@ -15,6 +15,9 @@ import java.util.Arrays;
  */
 public class VolatileCachedFactorizer extends HttpServlet {
 
+    /**
+     * volatile保证visibility, 只要引用改变了, 其他线程就能看到
+     */
     private volatile OneValueCache cache = new OneValueCache(null, null);
 
     @Override
