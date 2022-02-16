@@ -3,7 +3,6 @@ package com.punchcode.java_concurrency_in_practice.chapter4;
 import com.punchcode.java_concurrency_in_practice.chapter4.common.Point;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -15,7 +14,7 @@ import java.util.concurrent.ConcurrentMap;
 public class DelegatingVehicleTracker {
 
     /**
-     * Point is immutable
+     * Point is immutable, 线程安全
      */
     private final ConcurrentMap<String, Point> locations;
 

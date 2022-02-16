@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 车辆追踪器
+ * 车辆追踪器, 监视器模式, 保证在修改MutablePoint时线程安全
  * @author huanruiz
  * @since 2022/2/14
  */
