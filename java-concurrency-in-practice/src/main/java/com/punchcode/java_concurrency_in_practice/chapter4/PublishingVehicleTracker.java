@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * SafePoint被发布的版本, SafePoint本身线程安全, 所以可以可变. 可是改变车辆的位置.
+ * SafePoint被发布的版本, SafePoint本身线程安全, 所以可以可变. 可以改变车辆的位置.
  * @author huanruiz
  * @since 2022/2/16
  */
