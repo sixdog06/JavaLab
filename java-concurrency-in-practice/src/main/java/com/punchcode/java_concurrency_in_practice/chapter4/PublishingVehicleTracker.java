@@ -5,6 +5,8 @@ import com.punchcode.java_concurrency_in_practice.chapter4.common.SafePoint;
 import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * SafePoint被发布的版本, SafePoint本身线程安全, 所以可以可变. 可以改变车辆的位置.

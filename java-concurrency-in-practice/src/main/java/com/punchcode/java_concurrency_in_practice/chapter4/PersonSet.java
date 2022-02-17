@@ -20,6 +20,7 @@ public class PersonSet {
     public synchronized void addPerson(Person p) {
         mySet.add(p);
     }
+
     public synchronized boolean containsPerson(Person p) {
         return mySet.contains(p);
     }
