@@ -1,5 +1,8 @@
 package com.punchcode.java_concurrency_in_practice.chapter5;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -43,14 +46,14 @@ public class TestHarness {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        CountDownLatch countDownLatch = new CountDownLatch(6);
-        for (int i = 1; i <= 6; i++) {
-            new Thread(()->{
-                System.out.println(Thread.currentThread().getName()+"\tleave");
-                countDownLatch.countDown();
-            },String.valueOf(i)).start();
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "1");
+        map.put(2, "2");
+        map.put(3, null);
+
+        for (Map.Entry<Integer, String> entry: map.entrySet()) {
+            System.out.println(entry.getKey());
+            System.out.println(entry.getValue());
         }
-        countDownLatch.await();
-        System.out.println(Thread.currentThread().getName()+"\tdoor close");
     }
 }
