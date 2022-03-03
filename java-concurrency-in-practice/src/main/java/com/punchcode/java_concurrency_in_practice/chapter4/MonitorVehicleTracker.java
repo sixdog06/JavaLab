@@ -40,7 +40,7 @@ public class MonitorVehicleTracker {
         loc.y = y;
     }
 
-    private static Map<String, MutablePoint> deepCopy( Map<String, MutablePoint> m) {
+    private static Map<String, MutablePoint> deepCopy(Map<String, MutablePoint> m) {
         Map<String, MutablePoint> result = new HashMap<>(5);
         for (String id : m.keySet()) {
             result.put(id, new MutablePoint(m.get(id)));

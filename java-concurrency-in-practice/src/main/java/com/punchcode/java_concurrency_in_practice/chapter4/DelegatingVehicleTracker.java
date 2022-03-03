@@ -25,7 +25,7 @@ public class DelegatingVehicleTracker {
 
     public DelegatingVehicleTracker(Map<String, Point> points) {
         locations = new ConcurrentHashMap<>(points);
-        // unmodifiableMap是locations的有个view, 虽然可以实时更新, 但可能存在不一致的view, 因为view会跟着locations变.
+        // unmodifiableMap是locations的view, 虽然可以实时更新, 但可能存在不一致的view, 因为view会跟着locations变.
         unmodifiableMap = Collections.unmodifiableMap(locations);
     }
 

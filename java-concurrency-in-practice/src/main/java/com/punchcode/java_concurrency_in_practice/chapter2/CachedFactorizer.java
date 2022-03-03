@@ -12,7 +12,7 @@ import java.util.Arrays;
 /**
  * 带缓存且线程安全的因式分解Servlet
  * 既没有使用原子变量类, 也没有对整个方法加锁, 把栈上变量(每个线程独有的变量)排除在锁之外
- * 符合我们非共享共享不加锁的原则
+ * 符合我们非共享不加锁的原则
  * @author huanruiz
  * @since 2022/2/7
  */
@@ -29,6 +29,7 @@ public class CachedFactorizer extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BigInteger i = (BigInteger)req.getAttribute("i");
+        // factor只在单线程的栈上使用, 不被发布, 无需加锁
         BigInteger[] factors = null;
         // 查询, 先检查后执行
         synchronized (this) {

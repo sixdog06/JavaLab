@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 
 /**
- * 线程安全的因式分解, 因为lastNumber和lastFactors
+ * 线程安全的因式分解, 因为lastNumber和lastFactors不可变
  * @author huanruiz
  * @since 2022/2/10
  */
