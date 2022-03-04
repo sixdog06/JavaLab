@@ -35,7 +35,7 @@ public class Preloader {
             Throwable cause = e.getCause();
             if (cause instanceof DataLoadException) {
                 // 数据加载出错导致的exception(已知异常)
-                throw (DataLoadException) cause;
+                throw (DataLoadException)cause;
             } else {
                 throw launderThrowable(cause);
             }

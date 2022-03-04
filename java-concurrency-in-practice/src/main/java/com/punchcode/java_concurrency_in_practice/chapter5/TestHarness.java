@@ -1,8 +1,5 @@
 package com.punchcode.java_concurrency_in_practice.chapter5;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -39,21 +36,9 @@ public class TestHarness {
         long start = System.nanoTime();
         // 启动门减1, 其他线程开始运行
         startGate.countDown();
-        // 主线程等待, 其他线程全部运行结束后才回运行
+        // 主线程等待, 其他线程全部运行结束后才会运行
         endGate.await();
         long end = System.nanoTime();
         return end - start;
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        Map<Integer, String> map = new HashMap<>();
-        map.put(1, "1");
-        map.put(2, "2");
-        map.put(3, null);
-
-        for (Map.Entry<Integer, String> entry: map.entrySet()) {
-            System.out.println(entry.getKey());
-            System.out.println(entry.getValue());
-        }
     }
 }
