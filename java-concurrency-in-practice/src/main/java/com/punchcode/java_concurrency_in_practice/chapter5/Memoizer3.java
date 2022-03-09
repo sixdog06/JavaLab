@@ -25,8 +25,8 @@ public class Memoizer3<A, V> implements Computable<A, V> {
     @Override
     public V compute(final A arg) throws InterruptedException {
         Future<V> f = cache.get(arg);
-        // 这里的if非原子, 所以两个线程可能依然会算相同的值(概率比Memoizer2小). 因为这个复合操作在HashMap上进行,
-        // 无法通过加锁保证原子性
+        // 这里的if非原子, 所以两个线程可能依然会算相同的值(概率比Memoizer2小), 因为这个check-then-act复合操作不原子, 两
+        // 个线程很有可能拿到相同的值, 重复计算
         if (f == null) {
             Callable<V> eval = new Callable<V>() {
 
