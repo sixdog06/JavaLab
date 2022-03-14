@@ -22,8 +22,9 @@ public class SingleThreadRenderer {
         List<ImageData> imageData = new ArrayList<>();
         for (ImageInfo imageInfo: scanForImageInfo(source)) {
             imageData.add(imageInfo.downloadImage());
-            for (ImageData data: imageData) {
+            for (ImageData data : imageData) {
                 renderImage(data);
             }
+        }
     }
 }
