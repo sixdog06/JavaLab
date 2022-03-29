@@ -1,6 +1,6 @@
 package com.punchcode.java_concurrency_in_practice.chapter7;
 
-import java.util.concurrent.*;;
+import java.util.concurrent.*;;import static com.punchcode.java_concurrency_in_practice.chapter5.Preloader.launderThrowable;
 
 /**
  * @author huanruiz
@@ -24,5 +24,46 @@ public class TimedRun {
             }
         }, timeout, unit);
         r.run();
+    }
+    
+    /**
+     * 修复了timedRun的问题, 但是因为用了join. 无法知道线程是正常退出(因为taskThread.interrupt()退出)还是因为join超时而返回
+     */
+    public static void timedRun2(final Runnable r, long timeout, TimeUnit unit) throws InterruptedException {
+        class RethrowableTask implements Runnable {
+            /**
+             * 在两个线程之间共享
+             */
+            private volatile Throwable t;
+            
+            @Override
+            public void run() {
+                try {
+                    r.run();
+                } catch (Throwable t) {
+                    this.t = t;
+                }
+            }
+            
+            void rethrow() {
+                if (t != null) {
+                    throw launderThrowable(t);
+                }
+            }
+        }
+        
+        RethrowableTask task = new RethrowableTask();
+        final Thread taskThread = new Thread(task);
+        // 任务线程开始执行
+        taskThread.start();
+        // 用专门的中断线程中断任务
+        cancelExec.schedule(new Runnable() {
+                @Override
+                public void run() {
+                    taskThread.interrupt();
+                }
+            }, timeout, unit);
+        taskThread.join(unit.toMillis(timeout));
+        task.rethrow();
     }
 }
