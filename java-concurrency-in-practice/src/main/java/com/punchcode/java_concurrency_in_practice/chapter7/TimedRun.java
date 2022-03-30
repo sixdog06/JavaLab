@@ -66,4 +66,25 @@ public class TimedRun {
         taskThread.join(unit.toMillis(timeout));
         task.rethrow();
     }
+    
+    /**
+     * 通过Future的取消功能来实现. 这样可以知道是因为超时退出(TimeoutException), 还是任务执行完成后或没执行完成因为中断而退出
+     */
+    private static final ExecutorService taskExec = Executors.newFixedThreadPool(1);
+    
+    public static void timedRun3(Runnable r, long timeout, TimeUnit unit) throws InterruptedException {
+        Future<?> task = taskExec.submit(r);
+    
+        try {
+            task.get(timeout, unit);
+        } catch (TimeoutException e) {
+            // 超时, 可以取消任务
+        } catch (ExecutionException e) {
+            // exception thrown in task; rethrow
+            throw launderThrowable(e.getCause());
+        } finally {
+            // 任务没有执行了, 这行代码没有影响. 若还在执行, 则中断任务
+            task.cancel(true);
+        }
+    }
 }
