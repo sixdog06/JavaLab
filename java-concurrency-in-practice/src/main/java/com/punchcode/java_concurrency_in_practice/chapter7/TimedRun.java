@@ -1,6 +1,7 @@
 package com.punchcode.java_concurrency_in_practice.chapter7;
 
-import java.util.concurrent.*;;import static com.punchcode.java_concurrency_in_practice.chapter5.Preloader.launderThrowable;
+import java.util.concurrent.*;
+import static com.punchcode.java_concurrency_in_practice.chapter5.Preloader.launderThrowable;
 
 /**
  * @author huanruiz
