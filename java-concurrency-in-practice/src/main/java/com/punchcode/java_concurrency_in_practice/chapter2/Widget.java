@@ -8,7 +8,7 @@ package com.punchcode.java_concurrency_in_practice.chapter2;
 public class Widget {
 
     public synchronized void doSomething() {
-
+        System.out.println(this + ": calling method(super)");
     }
 
     public static void main(String[] args) {
