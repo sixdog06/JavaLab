@@ -10,7 +10,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 
 /**
- * 带缓存且线程安全的因式分解Servlet
+ * 带缓存且线程安全的因式分解Servlet, 对{@code SynchronizedFactorizer}进行优化
  * 既没有使用原子变量类, 也没有对整个方法加锁, 把栈上变量(每个线程独有的变量)排除在锁之外
  * 符合我们非共享不加锁的原则
  * @author huanruiz
@@ -21,9 +21,15 @@ public class CachedFactorizer extends HttpServlet {
     private BigInteger lastNumber;
 
     private BigInteger[] lastFactors;
-
+    
+    /**
+     * 命中的数量
+     */
     private long hits;
-
+    
+    /**
+     * 缓存命中的数量
+     */
     private long cacheHits;
 
     @Override
