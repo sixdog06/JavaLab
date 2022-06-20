@@ -27,6 +27,7 @@ public class SafeListener {
     }
 
     public static SafeListener newInstance(EventSource source) {
+        // SafeListener构造完成后, 再用registerListener去注册
         SafeListener safe = new SafeListener();
         source.registerListener(safe.listener);
         return safe;

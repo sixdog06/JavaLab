@@ -19,7 +19,7 @@ public class ThisEscape {
                 new EventListener() {
                     @Override
                     public void onEvent(Event e) {
-                        // 这个时候this溢出了
+                        // 如果EventListener被发布, this溢出了, 但是ThisEscape并没有构造完成
                         System.out.println(this);
                     }
                 }

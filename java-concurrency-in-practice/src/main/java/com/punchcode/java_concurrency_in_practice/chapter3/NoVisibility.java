@@ -17,6 +17,7 @@ public class NoVisibility {
         @Override
         public void run() {
             while (!ready) {
+                // 让该线程回到ready状态, 实际生产中几乎不会用
                 Thread.yield();
             }
             System.out.println(number);
