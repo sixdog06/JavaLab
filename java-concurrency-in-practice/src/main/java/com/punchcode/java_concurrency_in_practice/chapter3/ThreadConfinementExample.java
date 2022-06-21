@@ -18,7 +18,7 @@ public class ThreadConfinementExample {
     private static final String DB_URL = "haha.com";
 
     /**
-     * animals被封闭在栈内了
+     * animals作为局部变量, 被封闭在栈内
      */
     public int loadTheArk(Collection<Animal> candidates) {
         SortedSet<Animal> animals;
