@@ -1,6 +1,7 @@
 package com.punchcode.java_concurrency_in_practice.chapter4.common;
 
 /**
+ * immutable class
  * @author huanruiz
  * @since 2022/2/15
  */

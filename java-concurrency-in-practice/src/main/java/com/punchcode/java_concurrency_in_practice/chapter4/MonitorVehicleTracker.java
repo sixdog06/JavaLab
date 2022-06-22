@@ -21,11 +21,17 @@ public class MonitorVehicleTracker {
     public MonitorVehicleTracker(Map<String, MutablePoint> locations) {
         this.locations = deepCopy(locations);
     }
-
+    
+    /**
+     * 传的是new出来的locations, 而不是这个类的域
+     */
     public synchronized Map<String, MutablePoint> getLocations() {
         return deepCopy(locations);
     }
-
+    
+    /**
+     * 每次都传出新的对象, 保证内部的MutablePoint不被发布
+     */
     public synchronized MutablePoint getLocation(String id) {
         MutablePoint loc = locations.get(id);
         return loc == null ? null : new MutablePoint(loc);
