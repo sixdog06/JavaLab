@@ -10,7 +10,11 @@ import java.util.List;
 public class ImprovedList<T> { //implements List<T> {
 
     private final List<T> list;
-
+    
+    /**
+     * 这个地方传入后, 客户端就应该停止使用list
+     * @param list
+     */
     public ImprovedList(List<T> list) {
         this.list = list;
     }

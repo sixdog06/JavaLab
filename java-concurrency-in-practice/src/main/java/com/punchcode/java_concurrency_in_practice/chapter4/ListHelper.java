@@ -11,7 +11,10 @@ import java.util.List;
 public class ListHelper {
 
     public List<String> list = Collections.synchronizedList(new ArrayList<>());
-
+    
+    /**
+     * synchronized如果加载方法上, 锁就是ListHelper的实例, 和list中其他方法的锁不一样了, 无法保证线程安全
+     */
     public boolean putIfAbsent(String x) {
         synchronized (list) {
             boolean absent = !list.contains(x);
