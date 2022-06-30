@@ -5,7 +5,7 @@ import java.io.FileFilter;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * 消费者
+ * 扫描本地文件并建立索引方便以后搜索, FileCrawler是消费者
  * @author huanruiz
  * @since 2022/2/21
  */
