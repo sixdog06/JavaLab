@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * 消费者
+ * Indexer是消费者, 拿消息队列的文件进行index
  * @author huanruiz
  * @since 2022/2/21
  */
@@ -27,6 +27,6 @@ public class Indexer {
     }
 
     private void indexFile(File file) {
-        // do something
+        // do indexing
     }
 }
