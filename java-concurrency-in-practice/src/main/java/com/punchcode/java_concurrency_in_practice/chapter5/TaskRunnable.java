@@ -20,7 +20,6 @@ public class TaskRunnable implements Runnable {
             Thread.currentThread().interrupt();
         }
     }
-
     private void processTask(String take) {
         // do something
     }
