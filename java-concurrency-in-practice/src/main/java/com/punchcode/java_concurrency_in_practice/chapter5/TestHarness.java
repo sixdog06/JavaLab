@@ -3,6 +3,7 @@ package com.punchcode.java_concurrency_in_practice.chapter5;
 import java.util.concurrent.CountDownLatch;
 
 /**
+ * 闭锁
  * @author huanruiz
  * @since 2022/2/23
  */

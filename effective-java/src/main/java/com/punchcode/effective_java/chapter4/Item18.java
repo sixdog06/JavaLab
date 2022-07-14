@@ -5,7 +5,6 @@ import com.punchcode.effective_java.chapter4.common.InstrumentedSet;
 import com.sun.tools.javac.util.List;
 
 import java.util.HashSet;
-import java.util.TreeSet;
 
 /**
  * Item 18: Favor composition over inheritance

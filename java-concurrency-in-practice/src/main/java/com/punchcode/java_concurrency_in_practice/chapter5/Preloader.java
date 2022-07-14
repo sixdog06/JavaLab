@@ -8,6 +8,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 /**
+ * 闭锁, 通过FutureTask
  * @author huanruiz
  * @since 2022/2/24
  */
