@@ -19,7 +19,11 @@ import static com.punchcode.java_concurrency_in_practice.chapter6.common.ImageIn
  */
 public class FutureRenderer {
     
-    private final ExecutorService executor = new ThreadPoolExecutor(5, 10, 100, TimeUnit.MILLISECONDS,
+    private final ExecutorService executor = new ThreadPoolExecutor(
+            5,
+            10,
+            100,
+            TimeUnit.MILLISECONDS,
             new ArrayBlockingQueue<>(5));
     
     void renderPage(CharSequence source) {

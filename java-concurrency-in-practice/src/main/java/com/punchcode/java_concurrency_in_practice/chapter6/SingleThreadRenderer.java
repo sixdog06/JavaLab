@@ -11,7 +11,7 @@ import static com.punchcode.java_concurrency_in_practice.chapter6.common.ImageIn
 import static com.punchcode.java_concurrency_in_practice.chapter6.common.ImageInfo.scanForImageInfo;
 
 /**
- * 串行渲染
+ * 串行渲染器
  * @author huanruiz
  * @since 2022/3/9
  */

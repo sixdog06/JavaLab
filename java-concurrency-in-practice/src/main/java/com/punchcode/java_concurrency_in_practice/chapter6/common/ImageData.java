@@ -8,6 +8,6 @@ package com.punchcode.java_concurrency_in_practice.chapter6.common;
 public class ImageData {
     
     public static void renderImage(ImageData data) {
-    
+
     }
 }

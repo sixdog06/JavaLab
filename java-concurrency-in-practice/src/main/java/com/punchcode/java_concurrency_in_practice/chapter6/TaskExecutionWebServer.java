@@ -7,6 +7,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 /**
+ * 基于Executor的web服务器
  * @author huanruiz
  * @since 2022/3/8
  */
@@ -31,6 +32,6 @@ public class TaskExecutionWebServer {
     }
     
     private static void handleRequest(Socket connection) {
-    
+
     }
 }
