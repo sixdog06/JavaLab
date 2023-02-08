@@ -1,2 +1,5 @@
 # JavaLab
-这个repo放我的Java实验代码, 光说不练假把式. 以maven项目来构建, 每个module下放不同的书中学到的东西, 附带详细的注释.  
+这个Repo放Java学习过程中写的实验代码, 不同module放不同的内容
+
+- effective-java: 不同的item代码放在不同的class下
+- java-concurrency-in-practice: 和书中的代码标号一致
