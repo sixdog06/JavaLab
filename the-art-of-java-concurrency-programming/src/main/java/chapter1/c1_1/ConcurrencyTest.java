@@ -4,9 +4,12 @@ package chapter1.c1_1;
  * @author: Harry Zhang
  * @since: 14/Feb/2023
  */
-public class ConcurrencyTest
-{
-    private static final long count = 10000L;
+public class ConcurrencyTest {
+
+    /**
+     * 通过改变count控制循环次数, count次数较少时, 串行反而比并行快
+     */
+    private static final long count = 1000;
 
     public static void main(String[] args) throws InterruptedException {
         concurrency();
