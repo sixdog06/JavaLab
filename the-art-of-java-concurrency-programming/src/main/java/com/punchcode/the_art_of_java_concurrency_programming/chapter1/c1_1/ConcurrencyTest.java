@@ -1,4 +1,4 @@
-package chapter1.c1_1;
+package com.punchcode.the_art_of_java_concurrency_programming.chapter1.c1_1;
 
 /**
  * @author: Harry Zhang
