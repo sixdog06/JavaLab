@@ -1,4 +1,4 @@
-package com.punchcode.the_art_of_java_concurrency_programming.chapter4.c4_3;
+package com.punchcode.the_art_of_java_concurrency_programming.chapter4.c4_1;
 
 /**
  * @author: Harry Zhang
@@ -13,6 +13,7 @@ public class ThreadState {
         new Thread(new Blocked(), "BlockedThread-1").start();
         new Thread(new Blocked(), "BlockedThread-2").start();
     }
+
     // 该线程不断地进行睡眠
     static class TimeWaiting implements Runnable {
         @Override
