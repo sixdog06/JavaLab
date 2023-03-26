@@ -9,6 +9,7 @@ import java.io.PipedWriter;
  * @since: 24/Mar/2023
  */
 public class Piped {
+    
     public static void main(String[] args) throws Exception {
         PipedWriter out = new PipedWriter();
         PipedReader in = new PipedReader();
@@ -18,6 +19,7 @@ public class Piped {
         printThread.start();
         int receive = 0;
         try {
+            // 主线程写
             while ((receive = System.in.read()) != -1) {
                 out.write(receive);
             }
@@ -25,16 +27,19 @@ public class Piped {
             out.close();
         }
     }
+    
     static class Print implements Runnable {
         private PipedReader in;
         public Print(PipedReader in) {
             this.in = in;
         }
+        
         @Override
         public void run() {
             int receive = 0;
             try {
                 while ((receive = in.read()) != -1) {
+                    // 打印输入的内容
                     System.out.print((char) receive);
                 }
             } catch (IOException ex) {
