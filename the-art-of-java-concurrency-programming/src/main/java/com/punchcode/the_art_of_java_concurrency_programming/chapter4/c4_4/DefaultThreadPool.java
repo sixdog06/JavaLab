@@ -17,8 +17,8 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
     private static final int DEFAULT_WORKER_NUMBERS = 5;
     // 线程池最小的数量
     private static final int MIN_WORKER_NUMBERS = 1;
-    // 这是一个工作列表，将会向里面插入工作
-    private final LinkedList<Job> jobs = new LinkedList<Job>();
+    // 这是一个工作列表, 将会向里面插入工作
+    private final LinkedList<Job> jobs = new LinkedList<>();
     // 工作者列表
     private final List<Worker> workers = Collections.synchronizedList(new ArrayList<Worker>());
     // 工作者线程的数量
@@ -88,6 +88,7 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
     public int getJobSize() {
         return jobs.size();
     }
+
     // 初始化线程工作者
     private void initializeWorkers(int num) {
         for (int i = 0; i < num; i++) {
@@ -102,6 +103,7 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
     class Worker implements Runnable {
         // 是否工作
         private volatile boolean running = true;
+
         @Override
         public void run() {
             while (running) {
@@ -128,6 +130,7 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
                 }
             }
         }
+
         public void shutdown() {
             running = false;
         }
