@@ -17,7 +17,8 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
     private static final int DEFAULT_WORKER_NUMBERS = 5;
     // 线程池最小的数量
     private static final int MIN_WORKER_NUMBERS = 1;
-    // 这是一个工作列表，将会向里面插入工作
+    
+    // 这是一个工作列表, 将会向里面插入工作
     private final LinkedList<Job> jobs = new LinkedList<Job>();
     // 工作者列表
     private final List<Worker> workers = Collections.synchronizedList(new ArrayList<Worker>());
@@ -25,16 +26,16 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
     private int workerNum = DEFAULT_WORKER_NUMBERS;
     // 线程编号生成
     private AtomicLong threadNum = new AtomicLong();
-
+    
     public DefaultThreadPool() {
         initializeWorkers(DEFAULT_WORKER_NUMBERS);
     }
-
+    
     public DefaultThreadPool(int num) {
         workerNum = num > MAX_WORKER_NUMBERS ? MAX_WORKER_NUMBERS : Math.max(num, MIN_WORKER_NUMBERS);
         initializeWorkers(workerNum);
     }
-
+    
     @Override
     public void execute(Job job) {
         if (job != null) {
@@ -45,14 +46,17 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
             }
         }
     }
-
+    
+    /**
+     * 关停所有工作者
+     */
     @Override
     public void shutdown() {
         for (Worker worker : workers) {
             worker.shutdown();
         }
     }
-
+    
     @Override
     public void addWorkers(int num) {
         synchronized (jobs) {
@@ -64,7 +68,7 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
             this.workerNum += num;
         }
     }
-
+    
     @Override
     public void removeWorker(int num) {
         synchronized (jobs) {
@@ -83,12 +87,15 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
             this.workerNum -= count;
         }
     }
-
+    
     @Override
     public int getJobSize() {
         return jobs.size();
     }
-    // 初始化线程工作者
+    
+    /**
+     * 初始化线程工作者
+     */
     private void initializeWorkers(int num) {
         for (int i = 0; i < num; i++) {
             Worker worker = new Worker();
@@ -97,22 +104,23 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
             thread.start();
         }
     }
-
+    
     // 工作者, 负责消费任务
     class Worker implements Runnable {
         // 是否工作
         private volatile boolean running = true;
+        
         @Override
         public void run() {
             while (running) {
                 Job job;
                 synchronized (jobs) {
-                    // 如果工作者列表是空的, 那么就wait
+                    // 如果工作者列表是空的, 就wait
                     while (jobs.isEmpty()) {
                         try {
                             jobs.wait();
                         } catch (InterruptedException ex) {
-                            // 感知到外部对WorkerThread的中断操作, 返回
+                            // 感知到外部对WorkerThread的中断操作
                             Thread.currentThread().interrupt();
                             return;
                         }
@@ -128,6 +136,7 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
                 }
             }
         }
+        
         public void shutdown() {
             running = false;
         }
