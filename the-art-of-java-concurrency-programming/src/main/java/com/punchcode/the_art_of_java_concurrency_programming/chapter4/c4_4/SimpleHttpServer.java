@@ -1,27 +1,29 @@
 package com.punchcode.the_art_of_java_concurrency_programming.chapter4.c4_4;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * @author: Harry Zhang
- * @since: 27/Mar/2023
+ * todo: 实验
+ * @author huanruiz
+ * @since 2023/3/27
  */
 public class SimpleHttpServer {
-    // 处理HttpRequest的线程池
+
+    /**
+     * 处理HttpRequest的线程池
+     */
     static ThreadPool<HttpRequestHandler> threadPool = new DefaultThreadPool<>(1);
+
     // SimpleHttpServer的根路径
     static String basePath;
+
     static ServerSocket serverSocket;
-    // 服务监听端口
+
+    /**
+     * 服务监听端口
+     */
     static int port = 8080;
 
     public static void setPort(int port) {
@@ -29,6 +31,7 @@ public class SimpleHttpServer {
             SimpleHttpServer.port = port;
         }
     }
+
     public static void setBasePath(String basePath) {
         if (basePath != null && new File(basePath).exists() && new File(basePath).isDirectory()) {
             SimpleHttpServer.basePath = basePath;
@@ -47,10 +50,13 @@ public class SimpleHttpServer {
     }
 
     static class HttpRequestHandler implements Runnable {
+
         private Socket socket;
+
         public HttpRequestHandler(Socket socket) {
             this.socket = socket;
         }
+
         @Override
         public void run() {
             String line = null;
@@ -64,7 +70,7 @@ public class SimpleHttpServer {
                 // 由相对路径计算出绝对路径
                 String filePath = basePath + header.split(" ")[1];
                 out = new PrintWriter(socket.getOutputStream());
-                // 如果请求资源的后缀为jpg或者ico，则读取资源并输出
+                // 如果请求资源的后缀为jpg或者ico, 则读取资源并输出
                 if (filePath.endsWith("jpg") || filePath.endsWith("ico")) {
                     in = new FileInputStream(filePath);
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -80,8 +86,7 @@ public class SimpleHttpServer {
                     out.println("");
                     socket.getOutputStream().write(array, 0, array.length);
                 } else {
-                    br = new BufferedReader(new InputStreamReader(new
-                            FileInputStream(filePath)));
+                    br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath)));
                     out = new PrintWriter(socket.getOutputStream());
                     out.println("HTTP/1.1 200 OK");
                     out.println("Server: Molly");
@@ -112,5 +117,10 @@ public class SimpleHttpServer {
                 }
             }
         }
+    }
+
+    public static void main(String[] args) throws Exception {
+        SimpleHttpServer.setBasePath("");
+        SimpleHttpServer.start();
     }
 }

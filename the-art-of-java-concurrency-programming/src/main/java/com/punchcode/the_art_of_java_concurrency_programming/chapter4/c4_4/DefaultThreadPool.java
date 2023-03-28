@@ -17,8 +17,9 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
     private static final int DEFAULT_WORKER_NUMBERS = 5;
     // 线程池最小的数量
     private static final int MIN_WORKER_NUMBERS = 1;
+
     // 这是一个工作列表, 将会向里面插入工作
-    private final LinkedList<Job> jobs = new LinkedList<>();
+    private final LinkedList<Job> jobs = new LinkedList<Job>();
     // 工作者列表
     private final List<Worker> workers = Collections.synchronizedList(new ArrayList<Worker>());
     // 工作者线程的数量
@@ -46,6 +47,9 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
         }
     }
 
+    /**
+     * 关停所有工作者
+     */
     @Override
     public void shutdown() {
         for (Worker worker : workers) {
@@ -89,7 +93,9 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
         return jobs.size();
     }
 
-    // 初始化线程工作者
+    /**
+     * 初始化线程工作者
+     */
     private void initializeWorkers(int num) {
         for (int i = 0; i < num; i++) {
             Worker worker = new Worker();
@@ -109,12 +115,12 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
             while (running) {
                 Job job;
                 synchronized (jobs) {
-                    // 如果工作者列表是空的, 那么就wait
+                    // 如果工作者列表是空的, 就wait
                     while (jobs.isEmpty()) {
                         try {
                             jobs.wait();
                         } catch (InterruptedException ex) {
-                            // 感知到外部对WorkerThread的中断操作, 返回
+                            // 感知到外部对WorkerThread的中断操作
                             Thread.currentThread().interrupt();
                             return;
                         }
