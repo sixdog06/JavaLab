@@ -5,7 +5,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * todo: 实验
+ * 使用ab -c1000 -n1000 127.0.0.1:8080/Index.html
+ * 做性能测试, -c请求总数, -n并发数
  * @author huanruiz
  * @since 2023/3/27
  */
@@ -119,8 +120,13 @@ public class SimpleHttpServer {
         }
     }
 
+
     public static void main(String[] args) throws Exception {
-        SimpleHttpServer.setBasePath("");
-        SimpleHttpServer.start();
+        SimpleHttpServer.setBasePath("./the-art-of-java-concurrency-programming/src/main/resources/c4_4");
+        try {
+            SimpleHttpServer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

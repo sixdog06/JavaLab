@@ -10,7 +10,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>effective-java</module>
-        <module>core-java-volume</module>
         <module>java-concurrency-in-practice</module>
         <module>the-art-of-java-concurrency-programming</module>
     </modules>
