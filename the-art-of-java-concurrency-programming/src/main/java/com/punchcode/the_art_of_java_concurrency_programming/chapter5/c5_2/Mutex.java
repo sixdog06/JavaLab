@@ -1,4 +1,4 @@
-package com.punchcode.the_art_of_java_concurrency_programming.chapter5;
+package com.punchcode.the_art_of_java_concurrency_programming.chapter5.c5_2;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
@@ -6,7 +6,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
 /**
- * 实现锁接口
+ * 实现一个独占锁
  * @author: Harry Zhang
  * @since: 30/Mar/2023
  */
@@ -17,13 +17,17 @@ public class Mutex implements Lock {
      */
     private static class Sync extends AbstractQueuedSynchronizer {
 
-        // 是否处于占用状态
+        /**
+         * 是否处于占用状态
+         */
         @Override
         protected boolean isHeldExclusively() {
             return getState() == 1;
         }
 
-        // 当状态为0的时候获取锁
+        /**
+         * 当状态为0的时候获取锁
+         */
         @Override
         public boolean tryAcquire(int acquires) {
             if (compareAndSetState(0, 1)) {
@@ -33,7 +37,9 @@ public class Mutex implements Lock {
             return false;
         }
 
-        // 释放锁, 将状态设置为0
+        /**
+         * 释放锁, 将状态设置为0
+         */
         @Override
         protected boolean tryRelease(int releases) {
             if (getState() == 0) {
@@ -44,14 +50,19 @@ public class Mutex implements Lock {
             return true;
         }
 
-        // 返回一个Condition, 每个condition都包含了一个condition队列
+        /**
+         * 返回一个Condition, 每个condition都包含了一个condition队列
+         */
         Condition newCondition() {
             return new ConditionObject();
         }
     }
 
-    // 仅需要将操作代理到Sync上即可
+    /**
+     * 仅需要将操作代理到Sync上即可
+     */
     private final Sync sync = new Sync();
+
     @Override
     public void lock() {
         sync.acquire(1);
