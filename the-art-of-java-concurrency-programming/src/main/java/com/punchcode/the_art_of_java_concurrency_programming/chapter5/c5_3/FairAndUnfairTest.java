@@ -14,19 +14,39 @@ import java.util.concurrent.locks.ReentrantLock;
 public class FairAndUnfairTest {
 
     private static Lock fairLock = new ReentrantLock2(true);
-
     private static Lock unfairLock = new ReentrantLock2(false);
 
-    public void fair() {
+    public static void main(String[] args) throws InterruptedException {
+        FairAndUnfairTest test = new FairAndUnfairTest();
+        // 按aqs中的顺序获取锁, 一个线程不会连续获得锁
+        test.fair();
+        // 一个线程可能连续获得锁, 造成饥饿
+        test.unfair();
+    }
+
+    public void fair() throws InterruptedException {
+        System.out.println("fair");
         testLock(fairLock);
     }
 
-    public void unfair() {
+    public void unfair() throws InterruptedException {
+        System.out.println("unfair");
         testLock(unfairLock);
     }
 
-    private void testLock(Lock lock) {
-        // 启动5个Job(略)
+    private void testLock(Lock lock) throws InterruptedException {
+        // 启动5个Job
+        for (int i = 0; i < 5; i++) {
+            Thread thread = new Job(lock) {
+                @Override
+                public String toString() {
+                    return getName();
+                }
+            };
+            thread.setName("" + i);
+            thread.start();
+        }
+        Thread.sleep(2000);
     }
 
     private static class Job extends Thread {
@@ -37,12 +57,25 @@ public class FairAndUnfairTest {
             this.lock = lock;
         }
 
+        @Override
         public void run() {
-            // 连续2次打印当前的Thread和等待队列中的Thread(略)
+            // 每个线程尝试2次获取锁
+            for (int i = 0; i < 2; i++) {
+                lock.lock();
+                try {
+                    Thread.sleep(100);
+                    System.out.println("current thread[" + Thread.currentThread().getName() + "], aqs thread" + ((ReentrantLock2) lock).getQueuedThreads() + "");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    lock.unlock();
+                }
+            }
         }
     }
 
     private static class ReentrantLock2 extends ReentrantLock {
+
         public ReentrantLock2(boolean fair) {
             super(fair);
         }
@@ -53,15 +86,5 @@ public class FairAndUnfairTest {
             Collections.reverse(arrayList);
             return arrayList;
         }
-    }
-
-    private static class Job implements Runnable {
-        private Lock lock;
-    }
-
-    public static void main(String[] args) {
-        FairAndUnfairTest test = new FairAndUnfairTest();
-        test.fair();
-        test.unfair();
     }
 }
