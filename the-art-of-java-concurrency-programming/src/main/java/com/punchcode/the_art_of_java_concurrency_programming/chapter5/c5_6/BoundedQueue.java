@@ -16,6 +16,8 @@ public class BoundedQueue<T> {
     // 添加的下标, 删除的下标和数组当前数量
     private int addIndex, removeIndex, count;
     private Lock lock = new ReentrantLock();
+
+    // 用于控制锁的释放和获取
     private Condition notEmpty = lock.newCondition();
     private Condition notFull = lock.newCondition();
 
