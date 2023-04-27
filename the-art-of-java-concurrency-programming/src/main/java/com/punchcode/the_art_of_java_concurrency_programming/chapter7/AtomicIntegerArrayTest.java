@@ -13,6 +13,8 @@ public class AtomicIntegerArrayTest {
         AtomicIntegerArray ai = new AtomicIntegerArray(value);
         ai.getAndSet(0, 3);
         System.out.println(ai.get(0));
+        System.out.println(ai.get(1));
+        // value的值不会改变
         System.out.println(value[0]);
     }
 }
