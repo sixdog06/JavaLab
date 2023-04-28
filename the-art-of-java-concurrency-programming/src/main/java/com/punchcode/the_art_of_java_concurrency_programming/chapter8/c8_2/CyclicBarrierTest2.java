@@ -8,7 +8,7 @@ import java.util.concurrent.CyclicBarrier;
  */
 public class CyclicBarrierTest2 {
 
-    private static CyclicBarrier c = new CyclicBarrier(2, new Begin());
+    private static CyclicBarrier c = new CyclicBarrier(2, () -> System.out.println(3));
 
     public static void main(String[] args) {
         new Thread(() -> {
@@ -24,12 +24,5 @@ public class CyclicBarrierTest2 {
         } catch (Exception e) {
         }
         System.out.println(2);
-    }
-
-    static class Begin implements Runnable {
-        @Override
-        public void run() {
-            System.out.println(3);
-        }
     }
 }
