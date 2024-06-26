@@ -3,6 +3,7 @@ package com.punchcode.java_concurrency_in_practice.mytest;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -37,6 +38,15 @@ public class CreateThread {
         String s = executorService.invokeAny(Arrays.asList(new MyCallable2("any1"), new MyCallable("any2")));
         System.out.println(s);
 
+        CompletableFuture<Void> future = CompletableFuture
+                .runAsync(new FutureTask<>(new MyCallable("Completable1")))
+                .thenRunAsync(new FutureTask<>(new MyCallable("Completable2")));
+
+        CompletableFuture<String> supplyAsync = CompletableFuture.supplyAsync(() -> {
+            System.out.println("supplyAsync");
+            return "ha";
+        }, executorService);
+        supplyAsync.thenAccept(System.out::println);
         executorService.shutdown();
     }
 }
